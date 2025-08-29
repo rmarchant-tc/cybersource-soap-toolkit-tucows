@@ -1,0 +1,5 @@
+# Debian Stretch archive repositories
+# Main repositories moved to archive.debian.org
+deb http://archive.debian.org/debian stretch main
+deb http://archive.debian.org/debian-security stretch/updates main
+

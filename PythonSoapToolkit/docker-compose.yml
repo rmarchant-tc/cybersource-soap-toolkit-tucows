@@ -1,0 +1,24 @@
+version: '3.8'
+services:
+  cybersource-python:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      platforms:
+        - linux/amd64  # Force AMD64 for Debian Stretch compatibility
+    platform: linux/amd64
+    volumes:
+      - ./certificates:/app/certificates:ro
+      - ./sample.py:/app/sample.py
+      - ./sample2.py:/app/sample2.py
+    environment:
+      - CYBERSOURCE_KEY_ALIAS=${CYBERSOURCE_KEY_ALIAS}
+      - CYBERSOURCE_KEY_FILE=${CYBERSOURCE_KEY_FILE}
+      - CYBERSOURCE_KEY_PASS=${CYBERSOURCE_KEY_PASS}
+      - CYBERSOURCE_KEY_DIRECTORY=/app/certificates
+    networks:
+      - cybersource-net
+
+networks:
+  cybersource-net:
+    driver: bridge

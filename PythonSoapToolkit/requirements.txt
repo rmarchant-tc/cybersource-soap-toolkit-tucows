@@ -1,0 +1,14 @@
+# CyberSource Python SOAP Toolkit Requirements
+# Compatible with Debian Stretch and Python 3.5
+
+# Try system packages first (install with apt-get if available):
+# python3-lxml
+# python3-openssl 
+
+# Pip fallback dependencies (Debian Stretch compatible versions)
+lxml>=3.7.0,<4.7.0
+pyopenssl>=17.5.0,<20.0.0
+cryptography>=1.8.0,<3.0.0
+
+# HTTP client for SOAP requests (built-in alternative)
+# requests>=2.18.0,<3.0.0  # Optional, can use http.client instead
