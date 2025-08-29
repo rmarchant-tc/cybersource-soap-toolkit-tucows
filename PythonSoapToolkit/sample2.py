@@ -135,7 +135,7 @@ def main():
             
             # Client library info
             'clientLibrary': 'Python',
-            'clientLibraryVersion': sys.version,
+            'clientLibraryVersion': '{0}.{1}.{2}'.format(*sys.version_info[:3]),
             'clientEnvironment': '{}/{}'.format(sys.platform, os.name),
             
             # Credit card authorization service
