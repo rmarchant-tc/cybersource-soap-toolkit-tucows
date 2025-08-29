@@ -3,7 +3,7 @@
 require_once("ExtendedClientWithToken.php");
 
 // Before using this example, replace the generic values with your merchant ID.
-define( 'MERCHANT_ID', 'YOUR MERCHANT ID' );
+define( 'MERCHANT_ID', 'tuctest' );
 define( 'WSDL_URL', 'https://ics2wstest.ic3.com/commerce/1.x/transactionProcessor/CyberSourceTransaction_1.219.wsdl' );
 
 try {
@@ -11,10 +11,10 @@ try {
         WSDL_URL,
         array(
             'SSL' => array(
-                    'KEY_ALIAS'     => 'YOUR KEY ALIAS',
-                    'KEY_FILE'      => 'YOUR CERTIFICATE FILE',
-                    'KEY_PASS'      => 'YOUR KEY PASS',
-                    'KEY_DIRECTORY' => 'PATH TO CERTIFICATES'
+                    'KEY_ALIAS'     => getenv('KEY_ALIAS'),
+                    'KEY_FILE'      => getenv('KEY_FILE'),
+                    'KEY_PASS'      => getenv('KEY_PASS'),
+                    'KEY_DIRECTORY' => getenv('KEY_DIRECTORY')
                 )
             )
     );
@@ -32,7 +32,7 @@ try {
     $request->merchantID = MERCHANT_ID;
 
     // Before using this example, replace the generic value with your own.
-    $request->merchantReferenceCode = "your_merchant_reference_code";
+    $request->merchantReferenceCode = "TR_EX_0123456789012345_" . uniqid();
 
     // To help us troubleshoot any problems that you may encounter,
     // please include the following information about your PHP application.
